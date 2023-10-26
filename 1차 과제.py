@@ -17,15 +17,15 @@ if __name__ == "__main__":
     print("안전율 (S) 계산기")
 
     while True:
-        # 기준강도와 허용응력을 입력받습니다.
+        # 기준강도와 허용응력을 입력받는다.
         strength = get_user_input("기준강도를 입력하세요: ")
         allowable_stress = get_user_input("허용응력을 입력하세요: ")
 
-        # 안전율을 계산하고 출력합니다.
+        # 안전율을 계산하고 출력한다.
         safety_factor = calculate_safety_factor(strength, allowable_stress)
         print(f"안전율 (S) = {safety_factor:.2f}")
 
-        # 계속할지 사용자에게 물어봅니다.
+        # 계속할지 사용자에게 물어본다.
         repeat = input("계속하시겠습니까? (y/n): ")
         if repeat.lower() != 'y':
             break
