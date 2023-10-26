@@ -1,43 +1,25 @@
-def main():
-    ledger = {}  # 가계부 딕셔너리
+def calculate_monthly_transportation_cost():
+    print("한 달 교통비 계산기")
 
+    # 대전에서 충주까지의 교통비 요금 정보
+    Daejeon_bus_fare = 1250
+    train_fare = 7600
+    chungju_bus_fare = 1400
+
+    # 한 달 동안의 이용 횟수 입력 받기
     while True:
-        print("\n가계부 계산기")
-        print("1. 항목 추가")
-        print("2. 항목 조회")
-        print("3. 종료")
-
-        choice = input("원하는 작업을 선택하세요: ")
-
-        if choice == '1':
-            add_entry(ledger)
-        elif choice == '2':
-            view_entries(ledger)
-        elif choice == '3':
-            print("프로그램을 종료합니다.")
+        try:
+            Daejeon_bus_count = int(input("한 달 동안 대전에서 시내버스를 몇 번 이용했습니까? "))
+            train_count = int(input("한 달 동안 대전에서 충주까지 기차를 몇 번 이용했습니까? "))
+            chungju_bus_count = int(input("한 달 동안 충주 시내버스를 몇 번 이용했습니까? "))
             break
-        else:
-            print("올바른 옵션을 선택하세요.")
+        except ValueError:
+            print("올바른 숫자를 입력하세요.")
 
-def add_entry(ledger):
-    date = input("날짜 (예: 2023-10-26): ")
-    amount = float(input("금액: "))
+    # 한 달 동안의 교통비 계산
+    total_fare = (Daejeon_bus_fare * Daejeon_bus_count) + (train_fare * train_count) + (chungju_bus_fare * chungju_bus_count)
 
-    if date in ledger:
-        ledger[date] += amount
-    else:
-        ledger[date] = amount
+    print(f"한 달 동안의 총 교통비는 {total_fare}원 입니다.")
 
-    print("항목이 추가되었습니다.")
-
-def view_entries(ledger):
-    if not ledger:
-        print("가계부에 항목이 없습니다.")
-        return
-
-    print("\n가계부 항목:")
-    for date, amount in ledger.items():
-        print(f"{date}: {amount} 원")
-
-if __name__ == "__main":
-    main()
+# 한 달 교통비 계산기 실행
+calculate_monthly_transportation_cost()
