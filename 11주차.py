@@ -1,10 +1,10 @@
-data = {
-    '이름': ['Alice', 'Bob', 'Charlie', 'David'],
-    '나이': [25, 30, 35, 28],
-    '성별': ['여', '남', '남', '여']
-}
+import pandas as pd
 
-df = pd.DataFrame(data)
+dir = "C:\컴퓨터프로그래밍\computer_programming\data"
+filename = "08_pima-indians-diabetes.data.csv"
+filepath = dir + filename
 
-print("|n첫 번째 행 조회:")
-print(df.loc[0])
+data_columns = ['preg', 'plas', 'pres', 'skin', 'test', 'mass', 'pedi', 'age', 'class']
+data = pd.read_csv(filepath, names=data_columns)
+
+print(data.head(5))
